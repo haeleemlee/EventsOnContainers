@@ -11,7 +11,6 @@ C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\WebMVC.TagHelpers.input.cache
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\WebMVC.TagHelpers.output.cache
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\WebMVC.RazorCoreGenerate.cache
-C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
@@ -34,3 +33,4 @@ C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Event\_event.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Event\_pagination.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Event\About.g.cshtml.cs
