@@ -1,0 +1,74 @@
+networks:
+  backend: {}
+  frontend: {}
+services:
+  eventscatalogapi:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI
+      dockerfile: Dockerfile
+    container_name: ecatalogapi
+    depends_on:
+    - mssqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseName: EventDb
+      DatabasePassword: ProductApi(!)
+      DatabaseServer: mssqlserver
+      DatabaseUser: sa
+      ExternalEventBaseUrl: http://localhost:6080
+    image: events/ecatalogapi
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6080
+      target: 80
+    - target: 80
+  mssqlserver:
+    container_name: eventssqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: ProductApi(!)
+    image: microsoft/mssql-server-linux:latest
+    networks:
+      backend: {}
+    ports:
+    - published: 1448
+      target: 1433
+  tokenserver:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\TokenServiceApi
+      dockerfile: Dockerfile
+    container_name: tokenserviceapi
+    depends_on:
+    - mssqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      MvcClient: http://localhost:5208
+    image: events/tokenapi
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6070
+      target: 80
+  webmvc:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\webmvc
+      dockerfile: Dockerfile
+    container_name: webshop
+    depends_on:
+    - eventscatalogapi
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CallBackUrl: http://localhost:5208
+      EventUrl: http://eventscatalogapi
+      IdentityUrl: http://192.168.0.155:6070
+    image: events/webmvc
+    networks:
+      frontend: {}
+    ports:
+    - published: 5208
+      target: 80
+version: '3.4'

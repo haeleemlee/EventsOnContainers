@@ -1,0 +1,14 @@
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.csproj.CoreCompileInputs.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.AssemblyInfoInputs.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.AssemblyInfo.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.csprojAssemblyReference.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.RazorAssemblyInfo.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.RazorAssemblyInfo.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\bin\Debug\netcoreapp2.1\EventsCatalogAPI.deps.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\bin\Debug\netcoreapp2.1\EventsCatalogAPI.runtimeconfig.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\bin\Debug\netcoreapp2.1\EventsCatalogAPI.runtimeconfig.dev.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\bin\Debug\netcoreapp2.1\EventsCatalogAPI.dll
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\bin\Debug\netcoreapp2.1\EventsCatalogAPI.pdb
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.RazorTargetAssemblyInfo.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.dll
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI\obj\Debug\netcoreapp2.1\EventsCatalogAPI.pdb

@@ -1,0 +1,76 @@
+version: '3.4'
+
+services:
+  eventscatalogapi:
+    image: events/ecatalogapi:dev
+    build:
+      target: build
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "EventsCatalogAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_eventscatalogapi$
+    volumes:
+      - C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI:/app
+      - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_eventscatalogapi$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_eventscatalogapi$ \"bin/Debug/netcoreapp2.1/EventsCatalogAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+
+  tokenserver:
+    image: events/tokenapi:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "TokenServiceApi"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_tokenserver$
+    volumes:
+      - C:\Users\andycom\Documents\GitHub\EventsOnContainers\TokenServiceApi:/app
+      - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_tokenserver$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_tokenserver$ \"bin/Debug/netcoreapp2.1/TokenServiceApi.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+
+
+  webmvc:
+    image: events/webmvc:dev
+    build:
+      target: build
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "WebMVC"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_webmvc$
+    volumes:
+      - C:\Users\andycom\Documents\GitHub\EventsOnContainers\webmvc:/app
+      - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_webmvc$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_webmvc$ \"bin/Debug/netcoreapp2.1/WebMVC.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+
