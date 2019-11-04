@@ -2792,6 +2792,15 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "Polly/7.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Polly.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -7781,6 +7790,21 @@
         "nuget.frameworks.nuspec"
       ]
     },
+    "Polly/7.1.1": {
+      "sha512": "okRGHVvn0bGCeMBgaCZShlSez8rxjgthyDf/NRTYsSh5kb8IbKnX7W15d3s95Kq9uzwj7tFYiXNrCvn6d0XoeA==",
+      "type": "package",
+      "path": "polly/7.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/Polly.dll",
+        "lib/netstandard1.1/Polly.xml",
+        "lib/netstandard2.0/Polly.dll",
+        "lib/netstandard2.0/Polly.xml",
+        "polly.7.1.1.nupkg.sha512",
+        "polly.nuspec"
+      ]
+    },
     "Remotion.Linq/2.2.0": {
       "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
@@ -12605,7 +12629,8 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.12",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
+      "Polly >= 7.1.1"
     ]
   },
   "packageFolders": {
@@ -12673,6 +12698,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.1.10, )"
+          },
+          "Polly": {
+            "target": "Package",
+            "version": "[7.1.1, )"
           }
         },
         "imports": [

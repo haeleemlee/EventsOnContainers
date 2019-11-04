@@ -2,6 +2,32 @@ networks:
   backend: {}
   frontend: {}
 services:
+  basket.data:
+    image: redis
+    networks:
+      backend: {}
+    ports:
+    - published: 6079
+      target: 6379
+  cart:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\CartApi
+      dockerfile: Dockerfile
+    container_name: cartapi
+    depends_on:
+    - basket.data
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: basket.data
+      IdentityUrl: http://192.168.0.155:6070
+    image: events/cartapi
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6065
+      target: 80
   eventscatalogapi:
     build:
       context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI
@@ -58,11 +84,13 @@ services:
       dockerfile: Dockerfile
     container_name: webshop
     depends_on:
+    - cart
     - eventscatalogapi
     - tokenserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CallBackUrl: http://localhost:5208
+      CartUrl: http://cart
       EventUrl: http://eventscatalogapi
       IdentityUrl: http://192.168.0.155:6070
     image: events/webmvc

@@ -11,11 +11,11 @@ namespace EventCatalogAPI.Domain
         public string Name { get; set; }
 
         public DateTime Time { get; set; }
+        public int EPrice { get; set; }
         public string Description { get; set; }
-       
         public string PictureUrl { get; set; }
-        public int EventTypeId { get; set; }
 
+        public int EventTypeId { get; set; }
         public virtual EventType EventType { get; set; }//nevigational property
         public int EventPriceId { get; set; }
         public virtual EventPrice EventPrice { get; set; } //a reference type data will not take any space in memory

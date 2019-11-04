@@ -65,6 +65,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.10, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.1.1, )"
             }
           },
           "imports": [

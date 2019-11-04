@@ -34,3 +34,7 @@ C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Event\_pagination.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Event\About.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Header.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CartList\Default.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Cart\Default.g.cshtml.cs

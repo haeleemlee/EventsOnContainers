@@ -32,6 +32,8 @@ namespace EventsCatalogAPI.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int>("EPrice");
+
                     b.Property<int>("EventLocationId");
 
                     b.Property<int>("EventPriceId");
@@ -80,7 +82,7 @@ namespace EventsCatalogAPI.Migrations
                         .HasAnnotation("SqlServer:HiLoSequenceName", "event_Price_hilo")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.SequenceHiLo);
 
-                    b.Property<decimal>("Price")
+                    b.Property<int>("Price")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");

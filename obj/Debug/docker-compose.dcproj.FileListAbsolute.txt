@@ -11,3 +11,5 @@ C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\TokenServiceApi.V
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\TokenServiceApi.Views.pdb
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\TokenServiceApi.dll
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\TokenServiceApi.pdb
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\CartApi.dll
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\bin\Debug\CartApi.pdb

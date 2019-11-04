@@ -8,7 +8,7 @@ namespace EventCatalogAPI.Domain
     public class EventPrice
     {
         public int Id { get; set; }
-        public decimal Price  { get; set; }
+        public int Price  { get; set; }
     }
 }
 

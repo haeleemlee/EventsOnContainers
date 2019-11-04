@@ -24,7 +24,7 @@ namespace WebMVC.Services
 
         public async Task<IEnumerable<SelectListItem>> GetLocationAsync()
         {
-            var locationUri = ApiPath.Catalog.GetAllLocations(_baseUri);
+            var locationUri = ApiPaths.Catalog.GetAllLocations(_baseUri);
             var dataString = await _client.GetStringAsync(locationUri);
             var items = new List<SelectListItem>
             {
@@ -53,7 +53,7 @@ namespace WebMVC.Services
 
         public async Task<IEnumerable<SelectListItem>> GetPriceAsync()
         {
-            var priceUri = ApiPath.Catalog.GetAllPrices(_baseUri);
+            var priceUri = ApiPaths.Catalog.GetAllPrices(_baseUri);
             var dataString = await _client.GetStringAsync(priceUri);
             var items = new List<SelectListItem>
             {
@@ -82,7 +82,7 @@ namespace WebMVC.Services
 
         public async Task<IEnumerable<SelectListItem>> GetTypesAsync()
         {
-            var typeUri = ApiPath.Catalog.GetAllTypes(_baseUri);
+            var typeUri = ApiPaths.Catalog.GetAllTypes(_baseUri);
             var dataString = await _client.GetStringAsync(typeUri);
             var items = new List<SelectListItem>
             {
@@ -111,7 +111,7 @@ namespace WebMVC.Services
 
         public async Task<Catalog> GetEventItemsAsync(int page, int size, int? location, int? price, int? type)
         {
-            var eventItemsUri = ApiPath.Catalog.GetAllEventItems(_baseUri, page, size, location, price, type);
+            var eventItemsUri = ApiPaths.Catalog.GetAllEventItems(_baseUri, page, size, location, price, type);
             var dataString = await _client.GetStringAsync(eventItemsUri);
             var response = JsonConvert.DeserializeObject<Catalog>(dataString);
             return response;

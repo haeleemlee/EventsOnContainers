@@ -9,6 +9,9 @@
         <div class="esh-catalog-time">
             <span>@Model.Time.ToString("g")</span>
         </div>
+        <div class="esh-catalog-price">
+            <span>@Model.EPrice.ToString("g")</span>
+        </div>
         <input type="hidden" asp-for="@Model.EventLocation" name="location" />
         <input type="hidden" asp-for="@Model.EventLocationId" name="locationId" />
         <input type="hidden" asp-for="@Model.EventPrice" name="price" />
@@ -20,4 +23,5 @@
         <input type="hidden" asp-for="@Model.Name" name="name" />
         <input type="hidden" asp-for="@Model.PictureUrl" name="pictureUrl" />
         <input type="hidden" asp-for="@Model.Time" name="time" />
+        <input type="hidden" asp-for="@Model.EPrice" name="eprice" />
     </form>

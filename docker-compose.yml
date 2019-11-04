@@ -11,6 +11,7 @@ services:
       context: .\EventsCatalogAPI
       dockerfile: Dockerfile
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
       DatabaseServer: mssqlserver
       DatabaseName: EventDb
       DatabaseUser: sa
@@ -42,6 +43,25 @@ services:
     depends_on:
       - mssqlserver
 
+  cart:
+    build:
+      context: .\CartApi
+      dockerfile: Dockerfile
+    image: events/cartapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.0.155:6070
+      ConnectionString: basket.data
+    ports:
+      - "6065:80"
+    container_name: cartapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - basket.data
+      - tokenserver
+
   webmvc:
     build:
       context: .\webmvc
@@ -53,6 +73,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       IdentityUrl: http://192.168.0.155:6070
       CallBackUrl: http://localhost:5208
+      CartUrl: http://cart
     ports:
       - "5208:80"
     networks:
@@ -60,6 +81,7 @@ services:
     depends_on:
       - eventscatalogapi
       - tokenserver
+      - cart
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
@@ -69,5 +91,12 @@ services:
     container_name: eventssqlserver
     ports:
       - "1448:1433"
+    networks:
+      - backend
+
+  basket.data:
+    image: redis
+    ports:
+      - "6079:6379"
     networks:
       - backend
