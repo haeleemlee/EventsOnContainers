@@ -1,0 +1,249 @@
+networks:
+  backend: {}
+  frontend: {}
+services:
+  basket.data:
+    image: redis
+    networks:
+      backend: {}
+    ports:
+    - published: 6079
+      target: 6379
+  cart:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\CartApi
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: CartApi
+      target: build
+    container_name: cartapi
+    depends_on:
+    - basket.data
+    - rabbitmq
+    - tokenserver
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: basket.data
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      IdentityUrl: http://192.168.0.155:6070
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: events/cartapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "bin/Debug/netcoreapp2.1/CartApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6065
+      target: 80
+    volumes:
+    - C:\Users\andycom\Documents\GitHub\EventsOnContainers\CartApi:/app:rw
+    - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\andycom\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\andycom\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\andycom\.nuget\packages:/root/.nuget/packages:ro
+  eventscatalogapi:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: EventsCatalogAPI
+      target: build
+    container_name: ecatalogapi
+    depends_on:
+    - mssqlserver
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      DatabaseName: EventDb
+      DatabasePassword: ProductApi(!)
+      DatabaseServer: mssqlserver
+      DatabaseUser: sa
+      ExternalEventBaseUrl: http://localhost:6080
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: events/ecatalogapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "bin/Debug/netcoreapp2.1/EventsCatalogAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6080
+      target: 80
+    - target: 80
+    volumes:
+    - C:\Users\andycom\Documents\GitHub\EventsOnContainers\EventsCatalogAPI:/app:rw
+    - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\andycom\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\andycom\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\andycom\.nuget\packages:/root/.nuget/packages:ro
+  mssqlserver:
+    container_name: eventssqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: ProductApi(!)
+    image: microsoft/mssql-server-linux:latest
+    networks:
+      backend: {}
+    ports:
+    - published: 1448
+      target: 1433
+  order:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: OrderApi
+      target: build
+    container_name: orderapi
+    depends_on:
+    - mssqlserver
+    - rabbitmq
+    - tokenserver
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DATABASE: OrdersDb
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      IdentityUrl: http://192.168.0.155:6070
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      SA_PASSWORD: ProductApi(!)
+      SQLSERVER_HOST: mssqlserver
+    image: events/orderapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "bin/Debug/netcoreapp2.1/OrderApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6075
+      target: 80
+    volumes:
+    - C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi:/app:rw
+    - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\andycom\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\andycom\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\andycom\.nuget\packages:/root/.nuget/packages:ro
+  rabbitmq:
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    image: rabbitmq:3-management
+    networks:
+      backend: {}
+    ports:
+    - published: 5674
+      target: 5671
+    - published: 5673
+      target: 5672
+    - published: 15673
+      target: 15672
+    volumes:
+    - C:\Users\andycom\rabbitmq:/var/lib/rabbitmq/mnesia:rw
+  tokenserver:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\TokenServiceApi
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TokenServiceApi
+      target: base
+    container_name: tokenserviceapi
+    depends_on:
+    - mssqlserver
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      MvcClient: http://localhost:5208
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: events/tokenapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "bin/Debug/netcoreapp2.1/TokenServiceApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6070
+      target: 80
+    volumes:
+    - C:\Users\andycom\Documents\GitHub\EventsOnContainers\TokenServiceApi:/app:rw
+    - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\andycom\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\andycom\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\andycom\.nuget\packages:/root/.nuget/packages:ro
+  webmvc:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\webmvc
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: WebMVC
+      target: build
+    container_name: webshop
+    depends_on:
+    - cart
+    - eventscatalogapi
+    - order
+    - tokenserver
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CallBackUrl: http://localhost:5208
+      CartUrl: http://cart
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      EventUrl: http://eventscatalogapi
+      IdentityUrl: http://192.168.0.155:6070
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      OrderUrl: http://order
+      StripePrivateKey: sk_test_w6OinVnMa1i8VV1oJDLq4kTA00uoYiDSTs
+      StripePublicKey: pk_test_WBsZjG5kBd5zpeS5QDQi8jsm00Wt0yXvfW
+    image: events/webmvc:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "bin/Debug/netcoreapp2.1/WebMVC.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      frontend: {}
+    ports:
+    - published: 5208
+      target: 80
+    volumes:
+    - C:\Users\andycom\Documents\GitHub\EventsOnContainers\webmvc:/app:rw
+    - C:\Users\andycom\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\andycom\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\andycom\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\andycom\.nuget\packages:/root/.nuget/packages:ro
+version: '3.4'

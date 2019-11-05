@@ -87,7 +87,7 @@ using WebMVC.Services;
             WriteLiteral("    <section class=\"col-lg-4 col-md-5 col-xs-12\">\r\n        <div class=\"esh-identity\">\r\n            ");
             EndContext();
             BeginContext(312, 945, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b86087f302147e1be62727f0ab1c57e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac41b10e8458436696990dcfbba8d70d", async() => {
                 BeginContext(427, 111, true);
                 WriteLiteral("\r\n                <section class=\"esh-identity-section\">\r\n\r\n                    <div class=\"esh-identity-name\">");
                 EndContext();
@@ -105,7 +105,7 @@ using WebMVC.Services;
                 WriteLiteral("                    ");
                 EndContext();
                 BeginContext(706, 62, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "93d72053edd44580b18cb4aea7392352", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "611975ecd8a7493c8a0026964fbff385", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -137,7 +137,7 @@ using WebMVC.Services;
                         ");
                 EndContext();
                 BeginContext(1124, 58, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f74214014d2c43c2b15e83af7b9b964d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7eae9a8e13524b47bbe0dbaa5ee5c02a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -207,7 +207,7 @@ else
             WriteLiteral("    <section class=\"col-lg-4 col-md-5 col-xs-12\">\r\n        <div class=\"esh-identity\">\r\n            <section class=\"esh-identity-section\">\r\n                <div class=\"esh-identity-item\">\r\n\r\n                    ");
             EndContext();
             BeginContext(1659, 168, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc0fc56256674ab0baf05d4fa552fe58", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b175cc97cbf4061ba4c3da74fb266af", async() => {
                 BeginContext(1770, 53, true);
                 WriteLiteral("\r\n                        Login\r\n                    ");
                 EndContext();

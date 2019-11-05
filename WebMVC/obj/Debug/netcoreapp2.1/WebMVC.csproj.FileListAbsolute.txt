@@ -38,3 +38,9 @@ C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Header.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CartList\Default.g.cshtml.cs
 C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Cart\Default.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\Complete.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\Create.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\Detail.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\Index.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\Orders.g.cshtml.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\obj\Debug\netcoreapp2.1\Razor\Views\Order\_OrderItems.g.cshtml.cs

@@ -61,6 +61,29 @@ services:
     depends_on:
       - basket.data
       - tokenserver
+      - rabbitmq
+
+  order:
+    build:
+      context: .\OrderApi
+      dockerfile: Dockerfile
+    image: events/orderapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.0.155:6070
+      SQLSERVER_HOST: mssqlserver
+      SA_PASSWORD: ProductApi(!)
+      DATABASE: OrdersDb
+    ports:
+      - "6075:80"
+    container_name: orderapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+      - tokenserver
+      - rabbitmq
 
   webmvc:
     build:
@@ -74,6 +97,9 @@ services:
       IdentityUrl: http://192.168.0.155:6070
       CallBackUrl: http://localhost:5208
       CartUrl: http://cart
+      OrderUrl: http://order
+      StripePublicKey: pk_test_WBsZjG5kBd5zpeS5QDQi8jsm00Wt0yXvfW
+      StripePrivateKey: sk_test_w6OinVnMa1i8VV1oJDLq4kTA00uoYiDSTs
     ports:
       - "5208:80"
     networks:
@@ -82,6 +108,7 @@ services:
       - eventscatalogapi
       - tokenserver
       - cart
+      - order
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
@@ -98,5 +125,18 @@ services:
     image: redis
     ports:
       - "6079:6379"
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    ports:
+      - "15673:15672"
+      - "5673:5672"
+      - "5674:5671"
+    volumes:
+      - ~/rabbitmq:/var/lib/rabbitmq/mnesia
     networks:
       - backend

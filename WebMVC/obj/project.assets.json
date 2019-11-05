@@ -3029,6 +3029,21 @@
           }
         }
       },
+      "Stripe.net/17.8.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Console": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.2/Stripe.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.2/Stripe.net.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -8096,6 +8111,19 @@
         "version.txt"
       ]
     },
+    "Stripe.net/17.8.0": {
+      "sha512": "DRXWxeRgZNBPuNminjCg/PiSZZrYV/MIutagbkwQZTBivUPLhvo0n/wXDnXZlJb52iPGV/5VyNAg2aDMkU77/w==",
+      "type": "package",
+      "path": "stripe.net/17.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Stripe.net.dll",
+        "lib/netstandard1.2/Stripe.net.dll",
+        "stripe.net.17.8.0.nupkg.sha512",
+        "stripe.net.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -12630,7 +12658,8 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.12",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
-      "Polly >= 7.1.1"
+      "Polly >= 7.1.1",
+      "Stripe.net >= 17.8.0"
     ]
   },
   "packageFolders": {
@@ -12702,6 +12731,10 @@
           "Polly": {
             "target": "Package",
             "version": "[7.1.1, )"
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "[17.8.0, )"
           }
         },
         "imports": [

@@ -65,7 +65,7 @@ using WebMVC.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(167, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4b759891dbd41eaba2b604aa019ad3e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0157886e734e49c4b95add0a6c68a1a3", async() => {
                 BeginContext(262, 11, false);
 #line 7 "C:\Users\andycom\Documents\GitHub\EventsOnContainers\WebMVC\Views\Shared\_Header.cshtml"
                                                                                                      Write(header.Text);

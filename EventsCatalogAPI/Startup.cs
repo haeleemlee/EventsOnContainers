@@ -41,9 +41,9 @@ namespace EventCatalogAPI
                 Options.DescribeAllEnumsAsStrings();
                 Options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
-                    Title = "Eventsoncontainers - Product catalog Http API",
+                    Title = "Eventsoncontainers - Event catalog Http API",
                     Version = "v1",
-                    Description = "The product catalog API for Events",
+                    Description = "The catalog API for Events",
                     TermsOfService = "TermsOfService"
                 });
             });

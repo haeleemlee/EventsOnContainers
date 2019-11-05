@@ -1,0 +1,14 @@
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.csproj.CoreCompileInputs.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.AssemblyInfoInputs.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.AssemblyInfo.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.deps.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.dev.json
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.dll
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.csprojAssemblyReference.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorAssemblyInfo.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorAssemblyInfo.cs
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorTargetAssemblyInfo.cache
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.pdb
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.dll
+C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.pdb

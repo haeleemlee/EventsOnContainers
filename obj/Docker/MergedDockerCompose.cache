@@ -16,6 +16,7 @@ services:
     container_name: cartapi
     depends_on:
     - basket.data
+    - rabbitmq
     - tokenserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -61,6 +62,43 @@ services:
     ports:
     - published: 1448
       target: 1433
+  order:
+    build:
+      context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\OrderApi
+      dockerfile: Dockerfile
+    container_name: orderapi
+    depends_on:
+    - mssqlserver
+    - rabbitmq
+    - tokenserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DATABASE: OrdersDb
+      IdentityUrl: http://192.168.0.155:6070
+      SA_PASSWORD: ProductApi(!)
+      SQLSERVER_HOST: mssqlserver
+    image: events/orderapi
+    networks:
+      backend: {}
+      frontend: {}
+    ports:
+    - published: 6075
+      target: 80
+  rabbitmq:
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    image: rabbitmq:3-management
+    networks:
+      backend: {}
+    ports:
+    - published: 5674
+      target: 5671
+    - published: 5673
+      target: 5672
+    - published: 15673
+      target: 15672
+    volumes:
+    - C:\Users\andycom\rabbitmq:/var/lib/rabbitmq/mnesia:rw
   tokenserver:
     build:
       context: C:\Users\andycom\Documents\GitHub\EventsOnContainers\TokenServiceApi
@@ -86,6 +124,7 @@ services:
     depends_on:
     - cart
     - eventscatalogapi
+    - order
     - tokenserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -93,6 +132,9 @@ services:
       CartUrl: http://cart
       EventUrl: http://eventscatalogapi
       IdentityUrl: http://192.168.0.155:6070
+      OrderUrl: http://order
+      StripePrivateKey: sk_test_w6OinVnMa1i8VV1oJDLq4kTA00uoYiDSTs
+      StripePublicKey: pk_test_WBsZjG5kBd5zpeS5QDQi8jsm00Wt0yXvfW
     image: events/webmvc
     networks:
       frontend: {}

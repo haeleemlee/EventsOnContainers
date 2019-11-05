@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 namespace WebMVC.Infrastructure
 {
     public class ApiPaths
@@ -20,6 +21,12 @@ namespace WebMVC.Infrastructure
             {
                 return $"{baseUri}Eventtypes";
             }
+
+            public static string GetEventItem(string baseUri, int id)
+            {
+                return $"{baseUri}/items/{id}";
+            }
+
             public static string GetAllEventItems(string baseUri,
                 int page, int take, int? location, int? price, int? type)
             {
@@ -50,6 +57,29 @@ namespace WebMVC.Infrastructure
             public static string CleanBasket(string baseUri, string basketId)
             {
                 return $"{baseUri}/{basketId}";
+            }
+        }
+
+        public static class Order
+        {
+            public static string GetOrder(string baseUri, string orderId)
+            {
+                return $"{baseUri}/{orderId}";
+            }
+
+            //public static string GetOrdersByUser(string baseUri, string userName)
+            //{
+            //    return $"{baseUri}/userOrders?userName={userName}";
+            //}
+
+            public static string GetOrders(string baseUri)
+            {
+                return baseUri;
+            }
+
+            public static string AddNewOrder(string baseUri)
+            {
+                return $"{baseUri}/new";
             }
         }
     }
